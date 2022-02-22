@@ -1,0 +1,23 @@
+void setup() 
+{
+  Serial.begin(9600);
+}
+
+void loop() 
+
+{  
+  int adc_MQ = analogRead(A0); 
+  float voltage = adc_MQ * (5.0 / 1023.0); 
+
+  Serial.print("adc:");
+  Serial.print(adc_MQ);
+  Serial.print("voltage:");
+  Serial.println(voltage);
+  delay(100);
+}
+
+Do you have a calibration gas with a known concentration of CO2?
+
+Air is pretty good - it has 400ppm CO2 if you get fresh air from outdoors. If you have a tank of Nitrogen or Oxygen, you can use that to get a reading for zero CO2.
+
+A quick scan of the datasheet for the MQ135 shows that it responds to a lot of gases. If someone farts nearby, it will detect it and you can't tell which gas it was. Actual CO2 sensors cost $80-$400 for the cheap ones.
